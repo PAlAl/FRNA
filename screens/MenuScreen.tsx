@@ -1,13 +1,20 @@
 import React from 'react';
-import {Component} from 'react';
 import {FlatList} from "react-native";
-import TextView from "../components/TextView";
+import {MENU} from "../data/mainData";
+import MenuItemView from "../components/MenuItemView";
 
-export default class MenuScreen extends Component {
+export default class MenuScreen extends React.Component {
+    static navigationOptions = {
+        headerTitle: 'Меню'
+    };
+
     render() {
         return (
             <>
-                <TextView textSize={40}>MenuScreen</TextView>
+                <FlatList data={MENU} keyExtractor={item => item.productId}
+                          renderItem={(info) => <MenuItemView item={info.item} onAddToCart={() => {
+                          }} onViewDetail={() => {
+                          }}/>}/>
             </>
         )
     }
