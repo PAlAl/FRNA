@@ -5,24 +5,9 @@ import {
     Text
 } from 'react-native';
 
-export interface  TextViewProps {
-    textSize: number
-}
-
-export default class TextView extends Component<TextViewProps> {
-    constructor(props: TextViewProps) {
-        super(props);
-
-        this.state = {
-            textSize: props.textSize
-        }
-    }
-
-    render() {
-        return (
-            <Text style={{...styles.text, ...{fontSize: this.props.textSize} }}>{this.props.children}</Text>
-        )
-    }
+export interface TextViewProps {
+    textSize: number,
+    textColor: string
 }
 
 const styles = StyleSheet.create({
@@ -30,3 +15,13 @@ const styles = StyleSheet.create({
         fontFamily: "konstanting-regular"
     }
 });
+
+export default class TextView extends Component<TextViewProps> {
+    render() {
+        return (
+            <Text style={{...styles.text, ...{fontSize: this.props.textSize, color: this.props.textColor}}}>
+                {this.props.children}
+            </Text>
+        )
+    }
+}
