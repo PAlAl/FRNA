@@ -1,6 +1,9 @@
 import React from 'react'
 import MenuItem from "../models/MenuItem"
-import {View, Image, StyleSheet, Button} from 'react-native'
+import {
+    View, Image, StyleSheet, Button, TouchableOpacity, TouchableNativeFeedback,
+    Platform
+} from 'react-native'
 import Color from "../constans/Color"
 import TextView from "./TextView";
 
@@ -21,6 +24,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         height: 300,
         margin: 20
+    },
+    touchable: {
+        borderRadius: 10,
+        overflow: 'hidden'
     },
     imageContainer: {
         width: '100%',
@@ -52,8 +59,8 @@ const styles = StyleSheet.create({
 
 export default class MenuItemView extends React.Component<MenuItemStateProps> {
     render() {
-        return (
-            <View style={styles.product}>
+        let mainContainer = (
+            <View>
                 <View style={styles.imageContainer}>
                     <Image style={styles.image} source={{uri: this.props.item.imageSrc}}/>
                 </View>
@@ -72,6 +79,20 @@ export default class MenuItemView extends React.Component<MenuItemStateProps> {
                         title="В корзину"
                         onPress={this.props.onAddToCart}
                     />
+                </View>
+            </View>
+        );
+        return (
+            <View style={styles.product}>
+                <View style={styles.touchable}>
+                    {Platform.OS === 'android' && Platform.Version >= 21 ?
+                        <TouchableNativeFeedback onPress={this.props.onViewDetail} useForeground>
+                            {mainContainer}
+                        </TouchableNativeFeedback>
+                        :
+                        <TouchableOpacity onPress={this.props.onViewDetail}>
+                            {mainContainer}
+                        </TouchableOpacity>}
                 </View>
             </View>
         )
