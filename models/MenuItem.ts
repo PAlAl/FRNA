@@ -14,6 +14,6 @@ export default class MenuItem {
         this.productCategory = productCategory;
         this.description = description;
         this.imageSrc = imageSrc;
-        this.price = price;
+        this.price = price
     }
 }

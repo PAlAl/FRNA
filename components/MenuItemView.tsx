@@ -1,8 +1,8 @@
-import React from 'react';
-import TextView from "../components/TextView";
-import MenuItem from "../models/MenuItem";
-import {View, Text, Image, StyleSheet, Button} from 'react-native';
-import Color from  "../constans/Color"
+import React from 'react'
+import MenuItem from "../models/MenuItem"
+import {View, Image, StyleSheet, Button} from 'react-native'
+import Color from "../constans/Color"
+import TextView from "./TextView";
 
 export interface MenuItemStateProps {
     item: MenuItem,
@@ -39,12 +39,7 @@ const styles = StyleSheet.create({
         padding: 10
     },
     title: {
-        fontSize: 18,
         marginVertical: 4
-    },
-    price: {
-        fontSize: 14,
-        color: '#888'
     },
     actions: {
         flexDirection: 'row',
@@ -63,8 +58,8 @@ export default class MenuItemView extends React.Component<MenuItemStateProps> {
                     <Image style={styles.image} source={{uri: this.props.item.imageSrc}}/>
                 </View>
                 <View style={styles.details}>
-                    <Text style={styles.title}>{this.props.item.name}</Text>
-                    <Text style={styles.price}>₽{this.props.item.price.toFixed(2)}</Text>
+                    <TextView flexStyle={styles.title} textSize={30}>{this.props.item.name}</TextView>
+                    <TextView textSize={20} textColor={"#888888"}>₽{this.props.item.price.toFixed(2)}</TextView>
                 </View>
                 <View style={styles.actions}>
                     <Button

@@ -1,13 +1,17 @@
-import React from 'react';
-import {Component} from 'react';
+import React from 'react'
+import {Component} from 'react'
 import {
+    FlexStyle,
+    StyleProp,
     StyleSheet,
     Text
-} from 'react-native';
+} from 'react-native'
+import Color from "../constans/Color"
 
 export interface TextViewProps {
     textSize: number,
-    textColor: string
+    textColor?: string,
+    flexStyle?: StyleProp<FlexStyle>
 }
 
 const styles = StyleSheet.create({
@@ -18,8 +22,11 @@ const styles = StyleSheet.create({
 
 export default class TextView extends Component<TextViewProps> {
     render() {
+        let textColor = this.props.textColor ? this.props.textColor : Color.defaultTextColor;
+        let textSize = this.props.textSize ? this.props.textSize : 16;
+
         return (
-            <Text style={{...styles.text, ...{fontSize: this.props.textSize, color: this.props.textColor}}}>
+            <Text style={[{...styles.text, ...{fontSize: textSize, color: textColor}}, this.props.flexStyle]}>
                 {this.props.children}
             </Text>
         )
