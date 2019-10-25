@@ -4,8 +4,9 @@ import {MENU} from "../data/mainData"
 import MenuItemView from "../components/MenuItemView"
 import {ProductCategory} from "../models/enums/ProductCategory"
 import {NavigationScreenProp} from "react-navigation"
+import {MenuItemDetailScreenNavigationParams} from "../screens/MenuItemDetailScreen";
 
-export interface MenuViewStateProps {
+export interface MenuViewProps {
     navigation: NavigationScreenProp<any>
     category: ProductCategory
 }
@@ -16,7 +17,11 @@ const styles = StyleSheet.create({
     },
 });
 
-export default class MenuView extends React.Component<MenuViewStateProps> {
+export default class MenuView extends React.Component<MenuViewProps> {
+    createMenuItemDetailNavigationParams = (productId: string): MenuItemDetailScreenNavigationParams => {
+        return {menuItemId: productId}
+    };
+
     render() {
         return (
             <>
@@ -27,7 +32,9 @@ export default class MenuView extends React.Component<MenuViewStateProps> {
                               <MenuItemView item={info.item}
                                             onAddToCart={() => {
                                             }}
-                                            onViewDetail={() => {this.props.navigation.navigate("MenuItem")}}
+                                            onViewDetail={() => {
+                                                this.props.navigation.navigate("MenuItem", this.createMenuItemDetailNavigationParams(info.item.productId))
+                                            }}
                               />
                           }
                 />

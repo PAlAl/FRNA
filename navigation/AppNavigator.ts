@@ -4,6 +4,7 @@ import MenuScreen from "../screens/MenuScreen"
 import MenuItemDetailScreen from "../screens/MenuItemDetailScreen"
 import Color from "../constans/Color"
 import {Platform} from "react-native"
+import Constants from "../constans/Constants";
 
 const AppNavigator = createStackNavigator({
     Menu: MenuScreen,
@@ -14,7 +15,7 @@ const AppNavigator = createStackNavigator({
             backgroundColor: Platform.OS == "android" ? Color.primary : ""
         },
         headerTitleStyle: {
-            fontFamily: "konstanting-regular",
+            fontFamily: Constants.fontFamily,
             fontSize: 45
         },
         headerTintColor: Platform.OS == "android" ? "white" : Color.primary
