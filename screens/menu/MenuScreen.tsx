@@ -1,11 +1,13 @@
 import React from 'react'
 import {ProductCategory} from "../../models/enums/ProductCategory"
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view'
-import {Dimensions} from "react-native"
+import {Dimensions, Platform} from "react-native"
 import Color from "../../constans/Color"
-import TextView from "../../components/TextView"
+import TextView from "../../components/ui/TextView"
 import {NavigationParams, NavigationScreenProp, NavigationState} from "react-navigation"
 import {MenuViewContainer} from "../../components/menu/list/MenuListViewContainer";
+import {HeaderButtons, Item} from "react-navigation-header-buttons";
+import CustomHeaderButton from "../../components/ui/HeaderButton";
 
 interface MenuScreenProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>
@@ -29,7 +31,14 @@ export default class MenuScreen extends React.Component<MenuScreenProps> {
                 ...navigationOptions.headerStyle,
                 borderBottomWidth: 0, // for ios
                 elevation: 0// for android
-            }
+            },
+            headerRight: () => (
+                <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                    <Item title={"Корзина"}
+                          iconName="shopping-cart"
+                          onPress={() => {
+                          }}/>
+                </HeaderButtons>)
         }
     };
 
@@ -39,10 +48,14 @@ export default class MenuScreen extends React.Component<MenuScreenProps> {
                 <TabView
                     navigationState={this.state}
                     renderScene={SceneMap({
-                        first: props => <MenuViewContainer category={ProductCategory.Rolls} navigation={this.props.navigation}/>,
-                        second: props => <MenuViewContainer category={ProductCategory.Salads}  navigation={this.props.navigation}/>,
-                        third: props => <MenuViewContainer category={ProductCategory.Drinks}  navigation={this.props.navigation}/>,
-                        fourth: props => <MenuViewContainer category={ProductCategory.Desserts}  navigation={this.props.navigation}/>
+                        first: props => <MenuViewContainer category={ProductCategory.Rolls}
+                                                           navigation={this.props.navigation}/>,
+                        second: props => <MenuViewContainer category={ProductCategory.Salads}
+                                                            navigation={this.props.navigation}/>,
+                        third: props => <MenuViewContainer category={ProductCategory.Drinks}
+                                                           navigation={this.props.navigation}/>,
+                        fourth: props => <MenuViewContainer category={ProductCategory.Desserts}
+                                                            navigation={this.props.navigation}/>
                     })}
                     onIndexChange={index => this.setState({index})}
                     initialLayout={{width: Dimensions.get('window').width}}

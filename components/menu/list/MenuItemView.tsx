@@ -5,7 +5,7 @@ import {
     Platform
 } from 'react-native'
 import Color from "../../../constans/Color"
-import TextView from "../../TextView";
+import TextView from "../../ui/TextView";
 
 export interface MenuItemStateProps {
     item: MenuItem,

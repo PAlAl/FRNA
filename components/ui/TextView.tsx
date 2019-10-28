@@ -6,8 +6,8 @@ import {
     StyleSheet,
     Text
 } from 'react-native'
-import Color from "../constans/Color"
-import Constants from "../constans/Constants";
+import Color from "../../constans/Color"
+import Constants from "../../constans/Constants";
 
 export interface TextViewProps {
     textSize: number,

@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, View} from 'react-native'
-import TextView from "../../components/TextView"
+import TextView from "../../components/ui/TextView"
 import {MENU} from "../../data/mainData";
 import MenuItem from "../../models/MenuItem";
 import MenuItemDetailView from "../../components/menu/details/MenuItemDetailView";
