@@ -1,11 +1,11 @@
 import React from 'react'
-import MenuItem from "../../models/MenuItem"
+import MenuItem from "../../../models/MenuItem"
 import {
     View, Image, StyleSheet, Button, TouchableOpacity, TouchableNativeFeedback,
     Platform
 } from 'react-native'
-import Color from "../../constans/Color"
-import TextView from "../TextView";
+import Color from "../../../constans/Color"
+import TextView from "../../TextView";
 
 export interface MenuItemStateProps {
     item: MenuItem,

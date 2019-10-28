@@ -1,6 +1,6 @@
 import {NavigationScreenProp} from "react-navigation";
-import {ProductCategory} from "../../models/enums/ProductCategory";
-import MenuItem from "../../models/MenuItem";
+import {ProductCategory} from "../../../models/enums/ProductCategory";
+import MenuItem from "../../../models/MenuItem";
 
 export interface MenuContainerViewProps {
     navigation: NavigationScreenProp<any>
@@ -11,4 +11,4 @@ export interface MenuViewDispatchProps {
     addToCart: (menuItem:MenuItem) => void;
 }
 
-export type MenuViewProps = MenuContainerViewProps & MenuViewDispatchProps
+export type MenuListViewProps = MenuContainerViewProps & MenuViewDispatchProps

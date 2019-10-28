@@ -1,13 +1,14 @@
 import React from "react";
 import {Button, Image, ScrollView, StyleSheet, View} from "react-native";
-import TextView from "../TextView";
-import Color from "../../constans/Color";
+import TextView from "../../TextView";
+import Color from "../../../constans/Color";
 
 interface MenuItemDetailViewProps {
     name: string;
     description: string;
     image: string;
     price: number;
+    addToCart: () => void;
 }
 
 const styles = StyleSheet.create({
@@ -33,7 +34,7 @@ export default class MenuItemDetailView extends React.Component<MenuItemDetailVi
             <ScrollView>
                 <Image style={styles.image} source={{ uri: this.props.image}} />
                 <View style={styles.actions}>
-                    <Button color={Color.primary} title="Добавить в корзину" onPress={() => {}} />
+                    <Button color={Color.primary} title="Добавить в корзину" onPress={() => {this.props.addToCart()}} />
                 </View>
                 <TextView textSize={25} textColor={"#888"} flexStyle={styles.price}>₽{this.props.price.toFixed(2)}</TextView>
                 <TextView textSize={25} flexStyle={styles.description}>{this.props.description}</TextView>
