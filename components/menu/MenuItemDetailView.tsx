@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Image, ScrollView, StyleSheet, View} from "react-native";
-import TextView from "./TextView";
-import Color from "../constans/Color";
+import TextView from "../TextView";
+import Color from "../../constans/Color";
 
 interface MenuItemDetailViewProps {
     name: string;

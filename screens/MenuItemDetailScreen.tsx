@@ -4,7 +4,7 @@ import TextView from "../components/TextView"
 import {NavigationParams, NavigationScreenProp, NavigationState} from "react-navigation";
 import {MENU} from "../data/mainData";
 import MenuItem from "../models/MenuItem";
-import MenuItemDetailView from "../components/MenuItemDetailView";
+import MenuItemDetailView from "../components/menu/MenuItemDetailView";
 
 const styles = StyleSheet.create({});
 

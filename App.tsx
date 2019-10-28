@@ -1,13 +1,9 @@
 import React from 'react';
 import {Component} from 'react';
-import {createStore, combineReducers} from "redux"
-import {Provider} from "react-redux"
-import {menuReducer} from "./store/menu/reduser"
+import {createStore} from "redux"
 import AppNavigator from "./navigation/AppNavigator"
-
-const rootReducer = combineReducers({
-    menu: menuReducer
-})
+import {rootReducer} from "./store";
+import {Provider} from "react-redux";
 
 const store = createStore(rootReducer)
 
