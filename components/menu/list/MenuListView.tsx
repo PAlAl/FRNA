@@ -2,8 +2,8 @@ import React from 'react'
 import {FlatList, StyleSheet} from "react-native"
 import {MENU} from "../../../data/mainData"
 import MenuItemView from "./MenuItemView"
-import {MenuItemDetailScreenNavigationParams} from "../../../screens/menu/MenuItemDetailScreen";
 import {MenuListViewProps} from "./MenuListViewProps";
+import {MenuItemDetailScreenNavigationParams} from "../../../screens/menu/MenuItemDetailScreenProps";
 
 const styles = StyleSheet.create({
     mainContainer: {

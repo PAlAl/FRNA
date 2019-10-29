@@ -5,10 +5,12 @@ import {MenuItemDetailContainerScreen} from "../screens/menu/MenuItemDetailScree
 import Color from "../constans/Color"
 import {Platform} from "react-native"
 import Constants from "../constans/Constants";
+import {CartScreenContainer} from "../screens/cart/CartScreenContainer";
 
 const AppNavigator = createStackNavigator({
     Menu: MenuScreen,
-    MenuItem: MenuItemDetailContainerScreen
+    MenuItem: MenuItemDetailContainerScreen,
+    Cart:CartScreenContainer
 }, {
     defaultNavigationOptions: {
         headerStyle: {

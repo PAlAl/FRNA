@@ -7,6 +7,7 @@ export interface AddToCart extends Action<typeof ADD_TO_CART> {
 }
 
 export interface RemoveFromCart extends Action<typeof REMOVE_FROM_CART> {
+    productId: string
 }
 
 export const addToCart = (menuItem: MenuItem): AddToCart => ({
@@ -14,8 +15,9 @@ export const addToCart = (menuItem: MenuItem): AddToCart => ({
     menuItem: menuItem
 });
 
-export const removeFromCart = (): RemoveFromCart => ({
-    type: REMOVE_FROM_CART
+export const removeFromCart = (productId:string): RemoveFromCart => ({
+    type: REMOVE_FROM_CART,
+    productId: productId
 });
 
 export type CartActionTypes = AddToCart | RemoveFromCart

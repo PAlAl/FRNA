@@ -37,6 +37,7 @@ export default class MenuScreen extends React.Component<MenuScreenProps> {
                     <Item title={"Корзина"}
                           iconName="shopping-cart"
                           onPress={() => {
+                              navigation.navigate('Cart');
                           }}/>
                 </HeaderButtons>)
         }

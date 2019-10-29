@@ -1,6 +1,6 @@
 import Cart from "../../models/Cart";
 import {CartActionTypes} from "./actions";
-import {ADD_TO_CART, CartState} from "./types";
+import {ADD_TO_CART, CartState, REMOVE_FROM_CART} from "./types";
 import MenuItem from "../../models/MenuItem";
 import CartItem from "../../models/CartItem";
 
@@ -15,11 +15,27 @@ export const cartReducer = (state: CartState = defaultState, action: CartActionT
             const updatedCart = state.cart;
             const existItem: CartItem | undefined = updatedCart.items.find(item => item.productId == addedMenuItem.productId);
             if (existItem === undefined) {
-                updatedCart.items.push(new CartItem(addedMenuItem.productId, 1))
+                updatedCart.items.push(new CartItem(addedMenuItem.productId, addedMenuItem.name, 1, addedMenuItem.price))
             } else {
-                existItem.count++
+                existItem.count++;
+                existItem.totalPrice += addedMenuItem.price;
             }
             return {...state, cart: updatedCart};
+        }
+        case REMOVE_FROM_CART: {
+            const cart:Cart = state.cart;
+            const existItem:CartItem | undefined = cart.items.find((item) => item.productId == action.productId);
+
+            if (existItem !== undefined){
+                existItem.count--;
+
+                if (existItem.count < 1){
+                    cart.items.splice(state.cart.items.indexOf(existItem), 1);
+                    return {...state, cart: cart}
+                }
+                return {...state, cart: cart}
+            }
+
         }
         default: {
             return state;

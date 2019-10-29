@@ -1,7 +1,7 @@
 import MenuItem from "../../models/MenuItem";
 import {NavigationParams, NavigationScreenProp, NavigationState} from "react-navigation";
 
-interface MenuItemDetailScreenNavigationParams extends NavigationParams {
+export interface MenuItemDetailScreenNavigationParams extends NavigationParams {
     menuItemId: string;
 }
 

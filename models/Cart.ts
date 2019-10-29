@@ -2,10 +2,12 @@ import CartItem from "./CartItem";
 
 export default class Cart {
     public items: CartItem[];
-    public cost: number;
 
-    constructor(items: CartItem[] = [], cost: number = 0) {
+    constructor(items: CartItem[] = []) {
         this.items = items;
-        this.cost = cost
+    }
+
+    cost():number{
+        return this.items.reduce<number>((sum:number, item:CartItem) => sum += item.totalPrice, 0)
     }
 }
