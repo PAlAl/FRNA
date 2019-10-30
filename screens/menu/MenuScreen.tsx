@@ -27,6 +27,15 @@ export default class MenuScreen extends React.Component<MenuScreenProps> {
     static navigationOptions = ({navigation, screenProps, navigationOptions}: any) => {
         return {
             headerTitle: 'Меню',
+            headerLeft: () => (
+                <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                    <Item title={"Меню"}
+                          iconName="menu"
+                          onPress={() => {
+                              navigation.toggleDrawer();
+                          }}/>
+                </HeaderButtons>
+            ),
             headerStyle: {
                 ...navigationOptions.headerStyle,
                 borderBottomWidth: 0, // for ios

@@ -41,7 +41,7 @@ export default class CartScreen extends React.Component<CartScreenProps> {
             <View style={styles.screen}>
                 <View style={styles.summary}>
                     <TextView textSize={24}>
-                        Total:{' '}
+                        Сумма:{' '}
                         <Text style={styles.amount}>${this.props.cart.cost().toFixed(2)}</Text>
                     </TextView>
                     <Button
