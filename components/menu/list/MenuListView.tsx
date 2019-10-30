@@ -20,7 +20,7 @@ export default class MenuListView extends React.Component<MenuListViewProps> {
         return (
             <>
                 <FlatList style={styles.mainContainer}
-                          data={MENU.filter(it => it.productCategory == this.props.category)}
+                          data={MENU.filter(it => it.productCategory === this.props.category)}
                           keyExtractor={item => item.productId}
                           renderItem={(info) =>
                               <MenuItemView item={info.item}

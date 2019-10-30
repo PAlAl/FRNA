@@ -1,11 +1,11 @@
 import React, {Component} from "react";
-import {MenuContainerViewProps, MenuViewDispatchProps, MenuListViewProps} from "./MenuListViewProps";
+import {MenuViewDispatchProps, MenuListViewProps} from "./MenuListViewProps";
 import {ThunkDispatch} from "redux-thunk";
 import {addToCart, CartActionTypes} from "../../../store/cart/actions";
 import MenuListView from "./MenuListView";
-import {CartState} from "../../../store/cart/types";
 import MenuItem from "../../../models/MenuItem";
 import {connect} from "react-redux";
+import {MenuState} from "../../../store/menu/types";
 import {AppState} from "../../../store";
 
 class MenuListViewContainer extends Component<MenuListViewProps> {
@@ -22,7 +22,7 @@ const mapStateToProps = (appState: AppState) => {
     return {}
 };
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<CartState, any, CartActionTypes>): MenuViewDispatchProps => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<MenuState, any, CartActionTypes>): MenuViewDispatchProps => {
     return {
         addToCart: (menuItem: MenuItem) => dispatch(addToCart(menuItem))
     };

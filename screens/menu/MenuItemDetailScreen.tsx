@@ -4,8 +4,6 @@ import TextView from "../../components/ui/TextView"
 import {MENU} from "../../data/mainData";
 import MenuItem from "../../models/MenuItem";
 import MenuItemDetailView from "../../components/menu/details/MenuItemDetailView";
-import {AppState} from "../../store";
-import {CartState} from "../../store/cart/types";
 import {addToCart, CartActionTypes} from "../../store/cart/actions";
 import {
     MenuItemDetailDispatchProps,
@@ -14,6 +12,8 @@ import {
 } from "./MenuItemDetailScreenProps";
 import {connect} from "react-redux";
 import {ThunkDispatch} from 'redux-thunk';
+import {MenuState} from "../../store/menu/types";
+import {AppState} from "../../store";
 
 const styles = StyleSheet.create({});
 
@@ -27,7 +27,7 @@ export class MenuItemDetailScreen extends React.Component<MenuItemDetailScreenPr
 
     render() {
         let menuItemId = this.props.navigation.state.params ? this.props.navigation.state.params.menuItemId : '';
-        let menuItem: MenuItem | undefined = MENU.find(it => it.productId == menuItemId);
+        let menuItem: MenuItem | undefined = MENU.find(it => it.productId === menuItemId);
         return (
             menuItem !== undefined ?
                 <View style={{flex: 1}}>
@@ -52,7 +52,7 @@ const mapStateToProps = (appState: AppState) => {
     return {}
 };
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<CartState, any, CartActionTypes>): MenuItemDetailDispatchProps => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<MenuState, any, CartActionTypes>): MenuItemDetailDispatchProps => {
     return {
         addToCart: (menuItem: MenuItem) => dispatch(addToCart(menuItem))
     };

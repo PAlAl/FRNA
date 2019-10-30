@@ -14,13 +14,13 @@ const AppNavigator = createStackNavigator({
 }, {
     defaultNavigationOptions: {
         headerStyle: {
-            backgroundColor: Platform.OS == "android" ? Color.primary : ""
+            backgroundColor: Platform.OS === "android" ? Color.primary : ""
         },
         headerTitleStyle: {
             fontFamily: Constants.fontFamily,
             fontSize: 45
         },
-        headerTintColor: Platform.OS == "android" ? "white" : Color.primary
+        headerTintColor: Platform.OS === "android" ? "white" : Color.primary
     }
 });
 

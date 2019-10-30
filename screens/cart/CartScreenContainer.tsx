@@ -1,11 +1,11 @@
 import React, {Component} from "react";
-import {AppState} from "../../store";
 import {ThunkDispatch} from "redux-thunk";
-import {CartState} from "../../store/cart/types";
 import {CartActionTypes, removeFromCart} from "../../store/cart/actions";
 import {connect} from "react-redux";
 import {CartScreenDataProps, CartScreenDispatchProps, CartScreenProps} from "./CartScreenProps";
 import CartScreen from "./CartScreen";
+import {CartState} from "../../store/cart/types";
+import {AppState} from "../../store";
 
 class CartScreenContainer extends Component<CartScreenProps> {
     constructor(props: CartScreenProps) {
@@ -18,7 +18,7 @@ class CartScreenContainer extends Component<CartScreenProps> {
 }
 
 const mapStateToProps = (appState: AppState): CartScreenDataProps => {
-    return {cart: appState.cart.cart}
+    return {cart: appState.cartState.cart}
 };
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<CartState, any, CartActionTypes>): CartScreenDispatchProps => {

@@ -13,9 +13,9 @@ export const cartReducer = (state: CartState = defaultState, action: CartActionT
         case ADD_TO_CART: {
             const addedMenuItem: MenuItem = action.menuItem;
             const updatedCart = state.cart;
-            const existItem: CartItem | undefined = updatedCart.items.find(item => item.productId == addedMenuItem.productId);
+            const existItem: CartItem | undefined = updatedCart.items.find(item => item.productId === addedMenuItem.productId);
             if (existItem === undefined) {
-                updatedCart.items.push(new CartItem(addedMenuItem.productId, addedMenuItem.name, 1, addedMenuItem.price))
+                updatedCart.items.push(new CartItem(addedMenuItem.productId, addedMenuItem.name, 1, addedMenuItem.price, addedMenuItem))
             } else {
                 existItem.count++;
                 existItem.totalPrice += addedMenuItem.price;
@@ -23,17 +23,18 @@ export const cartReducer = (state: CartState = defaultState, action: CartActionT
             return {...state, cart: updatedCart};
         }
         case REMOVE_FROM_CART: {
-            const cart:Cart = state.cart;
-            const existItem:CartItem | undefined = cart.items.find((item) => item.productId == action.productId);
+            const updatedCart: Cart = state.cart;
+            const existItem: CartItem | undefined = updatedCart.items.find((item) => item.productId === action.productId);
 
-            if (existItem !== undefined){
+            if (existItem !== undefined) {
                 existItem.count--;
 
-                if (existItem.count < 1){
-                    cart.items.splice(state.cart.items.indexOf(existItem), 1);
-                    return {...state, cart: cart}
+                if (existItem.count < 1) {
+                    updatedCart.items.splice(state.cart.items.indexOf(existItem), 1);
+                } else {
+                    existItem.totalPrice = existItem.totalPrice - existItem.menuItem.price
                 }
-                return {...state, cart: cart}
+                return {...state, cart: new Cart(updatedCart.items)}
             }
 
         }
