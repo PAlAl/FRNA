@@ -1,9 +1,12 @@
 import React from "react";
 import {View, Text, FlatList, Button, StyleSheet} from 'react-native';
-import Color from "../../constans/Color";
-import TextView from "../../components/ui/TextView";
-import CartItemView from "../../components/cart/CartItemView";
+import Color from "../../../modules/Color";
+import TextView from "../../../components/TextView";
+import CartItemView from "../../cart/CartItemView";
 import {CartScreenProps} from "./CartScreenProps";
+import Order from "../../../models/Order";
+import {uuidv4} from "../../../App";
+import OrderItem from "../../../models/OrderItem";
 
 const styles = StyleSheet.create({
     screen: {
@@ -46,6 +49,8 @@ export default class CartScreen extends React.Component<CartScreenProps> {
                     </TextView>
                     <Button
                         onPress={() => {
+                            this.props.onFinishOrderClick(new Order(uuidv4().toString(), this.props.cart.cost(),
+                                this.props.cart.items.map((item) => new OrderItem(item.productId, item.menuItem.name, item.count, item.totalPrice))))
                         }}
                         color={Color.accent}
                         title="Заказать"

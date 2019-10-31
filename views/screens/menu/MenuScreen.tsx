@@ -1,13 +1,13 @@
 import React from 'react'
-import {ProductCategory} from "../../models/enums/ProductCategory"
+import {ProductCategory} from "../../../models/enums/ProductCategory"
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view'
 import {Dimensions, Platform} from "react-native"
-import Color from "../../constans/Color"
-import TextView from "../../components/ui/TextView"
+import Color from "../../../modules/Color"
+import TextView from "../../../components/TextView"
 import {NavigationParams, NavigationScreenProp, NavigationState} from "react-navigation"
-import {MenuViewContainer} from "../../components/menu/list/MenuListViewContainer";
+import {MenuViewContainer} from "../../menu/list/MenuListViewContainer";
 import {HeaderButtons, Item} from "react-navigation-header-buttons";
-import CustomHeaderButton from "../../components/ui/HeaderButton";
+import CustomHeaderButton from "../../../components/HeaderButton";
 
 interface MenuScreenProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>

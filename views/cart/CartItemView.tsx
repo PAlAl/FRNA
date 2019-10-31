@@ -4,7 +4,7 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native';
-import TextView from "../ui/TextView";
+import TextView from "../../components/TextView";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 interface CartItemViewProps {

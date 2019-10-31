@@ -5,6 +5,8 @@ import AppNavigator from "./navigation/AppNavigator"
 import {rootReducer} from "./store";
 import {Provider} from "react-redux";
 
+export const uuidv4 = require('uuid/v4');
+
 const store = createStore(rootReducer)
 
 export default class App extends Component {

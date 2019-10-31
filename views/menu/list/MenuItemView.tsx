@@ -4,8 +4,8 @@ import {
     View, Image, StyleSheet, Button, TouchableOpacity, TouchableNativeFeedback,
     Platform
 } from 'react-native'
-import Color from "../../../constans/Color"
-import TextView from "../../ui/TextView";
+import Color from "../../../modules/Color"
+import TextView from "../../../components/TextView";
 
 export interface MenuItemStateProps {
     item: MenuItem,

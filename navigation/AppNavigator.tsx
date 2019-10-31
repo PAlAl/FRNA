@@ -1,13 +1,14 @@
 import {createStackNavigator} from "react-navigation-stack"
 import {createAppContainer} from "react-navigation"
 import {createDrawerNavigator} from 'react-navigation-drawer';
-import MenuScreen from "../screens/menu/MenuScreen"
-import OrderScreen from "../screens/orders/OrdersScreen"
-import {MenuItemDetailContainerScreen} from "../screens/menu/MenuItemDetailScreen"
-import Color from "../constans/Color"
+import MenuScreen from "../views/screens/menu/MenuScreen"
+import OrderScreen from "../views/screens/orders/OrdersScreen"
+import {MenuItemDetailContainerScreen} from "../views/screens/menu/MenuItemDetailScreen"
+import Color from "../modules/Color"
 import {Platform} from "react-native"
-import Constants from "../constans/Constants";
-import {CartScreenContainer} from "../screens/cart/CartScreenContainer";
+import Constants from "../modules/Constants";
+import {CartScreenContainer} from "../views/screens/cart/CartScreenContainer";
+import React from "react";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const defaultNavOptions = {
@@ -26,7 +27,11 @@ const ProductsNavigator = createStackNavigator({
     MenuItem: MenuItemDetailContainerScreen,
     Cart: CartScreenContainer
 }, {
-    navigationOptions:{
+    navigationOptions: {
+        drawerLabel: "Продукты",
+        drawerIcon: ({tintColor}: any) => (
+            <MaterialIcons name="add-shopping-cart" color={tintColor} size={23}/>
+        )
     },
     defaultNavigationOptions: defaultNavOptions
 });
@@ -34,7 +39,12 @@ const ProductsNavigator = createStackNavigator({
 const OrdersNavigator = createStackNavigator({
     Orders: OrderScreen
 }, {
-    navigationOptions:{},
+    navigationOptions: {
+        drawerLabel: "Заказы",
+        drawerIcon: ({tintColor}: any) => (
+            <MaterialIcons name="list" color={tintColor} size={23}/>
+        )
+    },
     defaultNavigationOptions: defaultNavOptions
 });
 

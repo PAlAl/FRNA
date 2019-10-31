@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {HeaderButton, HeaderButtonProps} from "react-navigation-header-buttons";
 import {Platform} from "react-native";
-import Color from "../../constans/Color";
+import Color from "../modules/Color";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 export default class CustomHeaderButton extends Component<HeaderButtonProps> {

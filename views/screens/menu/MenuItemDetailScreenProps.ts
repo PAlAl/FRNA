@@ -1,4 +1,4 @@
-import MenuItem from "../../models/MenuItem";
+import MenuItem from "../../../models/MenuItem";
 import {NavigationParams, NavigationScreenProp, NavigationState} from "react-navigation";
 
 export interface MenuItemDetailScreenNavigationParams extends NavigationParams {

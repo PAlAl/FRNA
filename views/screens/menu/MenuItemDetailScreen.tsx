@@ -1,10 +1,10 @@
 import React from 'react'
 import {StyleSheet, View} from 'react-native'
-import TextView from "../../components/ui/TextView"
-import {MENU} from "../../data/mainData";
-import MenuItem from "../../models/MenuItem";
-import MenuItemDetailView from "../../components/menu/details/MenuItemDetailView";
-import {addToCart, CartActionTypes} from "../../store/cart/actions";
+import TextView from "../../../components/TextView"
+import {MENU} from "../../../data/mainData";
+import MenuItem from "../../../models/MenuItem";
+import MenuItemDetailView from "../../menu/details/MenuItemDetailView";
+import {addToCart, CartActionTypes} from "../../../store/cart/actions";
 import {
     MenuItemDetailDispatchProps,
     MenuItemDetailScreenNavigationType,
@@ -12,8 +12,8 @@ import {
 } from "./MenuItemDetailScreenProps";
 import {connect} from "react-redux";
 import {ThunkDispatch} from 'redux-thunk';
-import {MenuState} from "../../store/menu/types";
-import {AppState} from "../../store";
+import {MenuState} from "../../../store/menu/types";
+import {AppState} from "../../../store";
 
 const styles = StyleSheet.create({});
 
