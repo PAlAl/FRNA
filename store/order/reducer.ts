@@ -11,7 +11,7 @@ export const orderReducer = (state: OrderState = defaultState, action: OrderActi
             let newOrders = state.orders;
             newOrders.push(action.order);
 
-            return {...state, orders: newOrders}
+            return {...state, orders: [...newOrders]}
         }
         default: {
             return state;
