@@ -1,6 +1,6 @@
 import Cart from "../../models/Cart";
 import {CartActionTypes} from "./actions";
-import {ADD_TO_CART, CartState, REMOVE_FROM_CART} from "./types";
+import {ADD_TO_CART, CartState, CLEAR_CART, REMOVE_FROM_CART} from "./types";
 import MenuItem from "../../models/MenuItem";
 import CartItem from "../../models/CartItem";
 
@@ -36,7 +36,9 @@ export const cartReducer = (state: CartState = defaultState, action: CartActionT
                 }
                 return {...state, cart: new Cart(updatedCart.items)}
             }
-
+        }
+        case CLEAR_CART: {
+            return {...state, cart: new Cart([])}
         }
         default: {
             return state;

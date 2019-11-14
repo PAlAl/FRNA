@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {ThunkDispatch} from "redux-thunk";
-import {CartActionTypes, removeFromCart} from "../../../store/cart/actions";
+import {removeFromCart} from "../../../store/cart/actions";
 import {connect} from "react-redux";
 import {CartScreenDataProps, CartScreenDispatchProps, CartScreenProps} from "./CartScreenProps";
 import CartScreen from "./CartScreen";
 import {AppState, RootActionTypes} from "../../../store";
 import Order from "../../../models/Order";
-import {addOrder} from "../../../store/order/actions";
+import {addOrderEffect} from "../../../store/order/effects";
 
 class CartScreenContainer extends Component<CartScreenProps> {
     constructor(props: CartScreenProps) {
@@ -25,7 +25,7 @@ const mapStateToProps = (appState: AppState): CartScreenDataProps => {
 const mapDispatchToProps = (dispatch: ThunkDispatch<AppState, any, RootActionTypes>): CartScreenDispatchProps => {
     return {
         onRemoveClick: (productId: string) => dispatch(removeFromCart(productId)),
-        onFinishOrderClick: (order:Order) => dispatch(addOrder(order))
+        onFinishOrderClick: (order: Order) => dispatch(addOrderEffect(order))
     };
 };
 
